@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/item_home_choice_iv"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/popular_restaurant"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/item_home_choice_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="음식점 이름"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/item_home_choice_iv"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/item_home_choice_star_point_iv"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/star"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@id/item_home_choice_iv"
+        app:layout_constraintTop_toBottomOf="@id/item_home_choice_title_tv"/>
+
+    <TextView
+        android:id="@+id/item_home_choice_star_point_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="별점"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/item_home_choice_star_point_iv"
+        app:layout_constraintTop_toTopOf="@id/item_home_choice_star_point_iv"
+        app:layout_constraintBottom_toBottomOf="@id/item_home_choice_star_point_iv"/>
+
+    <TextView
+        android:id="@+id/item_home_choice_dot1_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="·"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toEndOf="@id/item_home_choice_star_point_tv"
+        app:layout_constraintTop_toTopOf="@id/item_home_choice_star_point_iv"
+        app:layout_constraintBottom_toBottomOf="@id/item_home_choice_star_point_iv"/>
+
+    <TextView
+        android:id="@+id/item_home_choice_distance_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="거리"
+        android:layout_marginStart="5dp"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/item_home_choice_star_point_iv"
+        app:layout_constraintBottom_toBottomOf="@id/item_home_choice_star_point_iv"
+        app:layout_constraintStart_toEndOf="@id/item_home_choice_dot1_tv"/>
+
+    <TextView
+        android:id="@+id/item_home_choice_dot2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="·"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toEndOf="@id/item_home_choice_distance_tv"
+        app:layout_constraintTop_toTopOf="@id/item_home_choice_star_point_iv"
+        app:layout_constraintBottom_toBottomOf="@id/item_home_choice_star_point_iv"/>
+
+    <TextView
+        android:id="@+id/item_home_choice_delivery_fee_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="배달비 3,000원"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toEndOf="@id/item_home_choice_dot2_tv"
+        app:layout_constraintTop_toTopOf="@id/item_home_choice_star_point_iv"
+        app:layout_constraintBottom_toBottomOf="@id/item_home_choice_star_point_iv"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
