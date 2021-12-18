@@ -110,7 +110,8 @@ class SignUpActivity : AppCompatActivity(), SignUpView{
     }
 
     override fun onPostSignUpSuccess(response: Auth) {
-//        saveJwt(this, response.jwt)
+        Toast.makeText(this, "회원가입이 완료되었습니다. 쿠팡 아이디(이메일)로 로그인 해주세요.", Toast.LENGTH_SHORT).show()
+        onBackPressed()
     }
 
     override fun onPostSignUpLoading() {

@@ -1,14 +1,23 @@
 package com.example.coupangeatsclone.ui.main.home
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.coupangeatsclone.R
+import com.example.coupangeatsclone.data.remote.restaurant.Category
 import com.example.coupangeatsclone.databinding.ItemHomeMainCategoryRvBinding
 
-class MainCategoryRvAdapter : RecyclerView.Adapter<MainCategoryRvAdapter.ViewHolder>() {
+class MainCategoryRvAdapter(private val context : Context, private val categoryList : ArrayList<Category>) : RecyclerView.Adapter<MainCategoryRvAdapter.ViewHolder>() {
     inner class ViewHolder (val binding : ItemHomeMainCategoryRvBinding) : RecyclerView.ViewHolder(binding.root){
-        fun bind(){
-
+        fun bind(category : Category){
+            binding.itemHomeCategoryTv.text = category.categoryName
+            if(category.iconImgUrl == ""){
+                Glide.with(context).load(R.drawable.popular_restaurant).into(binding.itemHomeCategoryIv)
+            } else {
+                Glide.with(context).load(category.iconImgUrl).into(binding.itemHomeCategoryIv)
+            }
         }
     }
 
@@ -19,11 +28,11 @@ class MainCategoryRvAdapter : RecyclerView.Adapter<MainCategoryRvAdapter.ViewHol
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind()
+        holder.bind(categoryList[position])
     }
 
     override fun getItemCount(): Int {
-        return 6
+        return categoryList.size
     }
 }
 

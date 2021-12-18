@@ -19,6 +19,11 @@ class LoginBottomDialog : BottomSheetDialogFragment() {
             startActivity(intent)
         }
 
+        binding.loginDialogEmailLoginTv.setOnClickListener {
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            startActivity(intent)
+        }
+
         return binding.root
     }
 }

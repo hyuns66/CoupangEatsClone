@@ -3,6 +3,7 @@ package com.example.coupangeatsclone.ui.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
+import com.example.coupangeatsclone.ApplicationClass
 import com.example.coupangeatsclone.R
 import com.example.coupangeatsclone.databinding.ActivityMainBinding
 import com.example.coupangeatsclone.ui.login.LoginBottomDialog
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         super.onCreate(savedInstanceState)
+
+        val applicationClass = ApplicationClass()
 
         supportFragmentManager.popBackStack("homeFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
         supportFragmentManager.beginTransaction()

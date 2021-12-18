@@ -5,6 +5,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.coupangeatsclone.R
 
 class MainAdVpAdapter(fragment : Fragment) : FragmentStateAdapter(fragment){
+
     override fun getItemCount(): Int {
         return 10
     }

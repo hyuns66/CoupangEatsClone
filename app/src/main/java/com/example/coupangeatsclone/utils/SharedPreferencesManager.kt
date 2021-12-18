@@ -25,3 +25,19 @@ fun saveJwt(jwt : String){
 //}
 
 fun getJwt(): String? = mSharedPreferences.getString(X_ACCESS_TOKEN, null)
+
+fun saveName(name : String){
+    val editor = mSharedPreferences.edit()
+    editor.putString(X_ACCESS_TOKEN, name)
+    editor.apply()
+}
+
+fun getName() : String = mSharedPreferences.getString(X_ACCESS_TOKEN, "(알 수 없음)")!!
+
+fun savePhoneNumber(phone : String){
+    val editor = mSharedPreferences.edit()
+    editor.putString(X_ACCESS_TOKEN, phone)
+    editor.apply()
+}
+
+fun getPhoneNumber() : String = mSharedPreferences.getString(X_ACCESS_TOKEN, "(알 수 없음)")!!
