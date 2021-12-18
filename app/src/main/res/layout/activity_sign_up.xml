@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp">
+
+        <ImageView
+            android:id="@+id/sign_up_close_iv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_close"
+            android:layout_margin="15dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintStart_toEndOf="@id/sign_up_close_iv"
+            app:layout_constraintTop_toTopOf="@id/sign_up_close_iv"
+            app:layout_constraintBottom_toBottomOf="@id/sign_up_close_iv"/>
+
+        <TextView
+            android:id="@+id/sign_up_header_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#494949"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_close_iv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:id="@+id/sign_up_coupang_logo_iv"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/coupang_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_header_line"/>
+
+        <TextView
+            android:id="@+id/sign_up_explanation_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원정보를 입력해주세요"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="15dp"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_coupang_logo_iv"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <EditText
+            android:id="@+id/sign_up_email_et"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:hint="아이디(이메일)"
+            android:paddingStart="20dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/sign_up_edit_text"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_explanation_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/sign_up_password_et"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:hint="비밀번호"
+            android:paddingStart="20dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/sign_up_edit_text"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_email_et"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/sign_up_name_et"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:hint="이름"
+            android:paddingStart="20dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/sign_up_edit_text"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_password_et"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/sign_up_phone_et"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:hint="휴대폰 번호"
+            android:paddingStart="20dp"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/sign_up_edit_text"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_name_et"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/sign_up_btn_tv"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="동의하고 가입하기"
+            android:textColor="@color/white"
+            android:background="#0029FF"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_phone_et"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="ⓒCoupang COrp. All rights reserved."
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_btn_tv"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

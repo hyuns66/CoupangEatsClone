@@ -1,5 +1,6 @@
 package com.example.coupangeatsclone.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,11 @@ class LoginBottomDialog : BottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentLoginBottomDialogBinding.inflate(inflater, container, false)
+
+        binding.loginDialogSignUpTv.setOnClickListener {
+            val intent = Intent(requireContext(), SignUpActivity::class.java)
+            startActivity(intent)
+        }
 
         return binding.root
     }
