@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun loginCheck(case : String){
-        val jwt = getJwt(this)
+        val jwt = getJwt()
         if (jwt == ""){
             val loginSheet = LoginBottomDialog()
             loginSheet.show(supportFragmentManager, loginSheet.tag)
