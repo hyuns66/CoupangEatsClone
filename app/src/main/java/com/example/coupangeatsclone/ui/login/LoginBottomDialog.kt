@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.coupangeatsclone.databinding.FragmentLoginBottomDialogBinding
+import com.example.coupangeatsclone.ui.loginf5.SignUpActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class LoginBottomDialog : BottomSheetDialogFragment() {

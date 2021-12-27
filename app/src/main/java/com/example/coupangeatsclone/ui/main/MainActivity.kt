@@ -22,8 +22,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         super.onCreate(savedInstanceState)
 
-        val applicationClass = ApplicationClass()
-
         supportFragmentManager.popBackStack("homeFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
         supportFragmentManager.beginTransaction()
                 .replace(R.id.main_frame, HomeFragment())
@@ -72,11 +70,12 @@ class MainActivity : AppCompatActivity() {
             false
         }
 
+
     }
 
     fun loginCheck(case : String){
         val jwt = getJwt()
-        if (jwt == ""){
+        if (jwt == null){
             val loginSheet = LoginBottomDialog()
             loginSheet.show(supportFragmentManager, loginSheet.tag)
         } else {

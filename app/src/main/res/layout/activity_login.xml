@@ -55,6 +55,7 @@
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="20dp"
         android:hint="비밀번호 입력"
+        android:inputType="textPassword"
         android:textSize="14sp"
         android:paddingStart="85dp"
         app:layout_constraintStart_toStartOf="parent"

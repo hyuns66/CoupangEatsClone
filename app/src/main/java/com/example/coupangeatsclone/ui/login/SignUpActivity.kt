@@ -1,4 +1,4 @@
-package com.example.coupangeatsclone.ui.login
+package com.example.coupangeatsclone.ui.loginf5
 
 import android.graphics.Color
 import android.os.Bundle
@@ -12,11 +12,12 @@ import com.example.coupangeatsclone.data.entities.User
 import com.example.coupangeatsclone.data.remote.auth.Auth
 import com.example.coupangeatsclone.data.remote.auth.AuthService
 import com.example.coupangeatsclone.databinding.ActivitySignUpBinding
+import com.example.coupangeatsclone.ui.login.SignUpView
 import com.example.coupangeatsclone.utils.saveJwt
 import java.util.regex.Pattern
 import kotlin.math.sign
 
-class SignUpActivity : AppCompatActivity(), SignUpView{
+class SignUpActivity : AppCompatActivity(), SignUpView {
     lateinit var binding : ActivitySignUpBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

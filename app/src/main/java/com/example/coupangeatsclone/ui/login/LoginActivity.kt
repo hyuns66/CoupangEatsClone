@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity(), LogInView {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
 
-        Toast.makeText(this, String.format("{0}님 쿠팡 계정으로 로그인 했습니다.", response.name), Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, String.format("%s님 쿠팡 계정으로 로그인 했습니다.", response.name), Toast.LENGTH_SHORT).show()
     }
 
     override fun onPostLogInLoading() {

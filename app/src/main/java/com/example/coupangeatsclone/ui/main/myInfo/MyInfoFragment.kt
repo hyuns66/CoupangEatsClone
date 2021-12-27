@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.coupangeatsclone.databinding.FragmentMyInfoBinding
+import com.example.coupangeatsclone.utils.getName
+import com.example.coupangeatsclone.utils.getPhoneNumber
 
 class MyInfoFragment : Fragment() {
     lateinit var binding : FragmentMyInfoBinding
@@ -18,6 +20,9 @@ class MyInfoFragment : Fragment() {
             val intent = Intent(requireContext(), SettingActivity::class.java)
             startActivity(intent)
         }
+
+        binding.myInfoNameTv.text = getName()
+        binding.myInfoPhoneTv.text = getPhoneNumber()
 
         return binding.root
     }

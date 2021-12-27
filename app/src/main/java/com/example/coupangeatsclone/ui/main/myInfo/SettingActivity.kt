@@ -1,11 +1,16 @@
 package com.example.coupangeatsclone.ui.main.myInfo
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.coupangeatsclone.ApplicationClass
+import com.example.coupangeatsclone.ApplicationClass.Companion.X_ACCESS_TOKEN
+import com.example.coupangeatsclone.ApplicationClass.Companion.mSharedPreferences
 import com.example.coupangeatsclone.databinding.ActivitySettingBinding
+import com.example.coupangeatsclone.ui.main.MainActivity
 
 class SettingActivity : AppCompatActivity(){
     lateinit var binding : ActivitySettingBinding
@@ -34,6 +39,12 @@ class SettingActivity : AppCompatActivity(){
     }
 
     fun logout(){
+        val editor = mSharedPreferences.edit()
+        editor.remove(X_ACCESS_TOKEN)
+        editor.apply()
 
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
     }
 }

@@ -30,7 +30,7 @@
         android:id="@+id/item_home_choice_star_point_iv"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:src="@drawable/star"
+        android:src="@drawable/ic_review_yellow_star"
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="@id/item_home_choice_iv"
         app:layout_constraintTop_toBottomOf="@id/item_home_choice_title_tv"/>

@@ -78,7 +78,7 @@ class HomeFragment : Fragment(), CategoryView{
                     sleep(6000)
                     pagerHandler.post{
                         var position = binding.homeMainAdVp.currentItem
-                        if(position == itemCount){
+                        if(position == itemCount-1){
                             position = 0
                             binding.homeMainAdVp.currentItem = position
                         } else {
