@@ -1,4 +1,4 @@
-package com.example.coupangeatsclone.ui.loginf5
+package com.example.coupangeatsclone.ui.login
 
 import android.graphics.Color
 import android.os.Bundle

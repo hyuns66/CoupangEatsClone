@@ -1,5 +1,6 @@
 package com.example.coupangeatsclone.ui.main.home
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -20,7 +21,15 @@ class HomeFragment : Fragment(), CategoryView{
     private var pagerHandler = Handler(Looper.getMainLooper())
     lateinit var swiper : AdBannerAutoSwiper
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.d("homeOnAttach()", "homeOnAttach()!!!")
+
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        Log.d("homeOnCreate()", "homeOnCreate()!!!")
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 

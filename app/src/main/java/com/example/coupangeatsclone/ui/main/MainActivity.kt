@@ -1,7 +1,10 @@
 package com.example.coupangeatsclone.ui.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.coupangeatsclone.ApplicationClass
 import com.example.coupangeatsclone.R
@@ -9,50 +12,70 @@ import com.example.coupangeatsclone.databinding.ActivityMainBinding
 import com.example.coupangeatsclone.ui.login.LoginBottomDialog
 import com.example.coupangeatsclone.ui.main.history.HistoryFragment
 import com.example.coupangeatsclone.ui.main.home.HomeFragment
-import com.example.coupangeatsclone.ui.main.like.LikeFragment
+import com.example.coupangeatsclone.ui.main.like.LikeActivity
 import com.example.coupangeatsclone.ui.main.myInfo.MyInfoFragment
 import com.example.coupangeatsclone.ui.main.search.SearchFragment
 import com.example.coupangeatsclone.utils.getJwt
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding : ActivityMainBinding
-
+    val homeFragment = HomeFragment()
+    val searchFragment = SearchFragment()
+    val historyFragment = HistoryFragment()
+    val myInfoFragment = MyInfoFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         super.onCreate(savedInstanceState)
 
-        supportFragmentManager.popBackStack("homeFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
         supportFragmentManager.beginTransaction()
-                .replace(R.id.main_frame, HomeFragment())
+                .add(R.id.main_frame, homeFragment, "home")
                 .commitAllowingStateLoss()
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.homeFragment -> {
-                    supportFragmentManager.popBackStack("homeFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                    supportFragmentManager.beginTransaction()
-                            .replace(R.id.main_frame, HomeFragment())
-                            .addToBackStack("homeFragment")
+                    if(homeFragment.isAdded){
+                        supportFragmentManager.beginTransaction()
+                            .show(homeFragment)
+                            .hide(searchFragment)
+                            .hide(historyFragment)
+                            .hide(myInfoFragment)
                             .commitAllowingStateLoss()
+                    } else {
+                        supportFragmentManager.beginTransaction()
+                            .add(R.id.main_frame, homeFragment, "home")
+                            .hide(searchFragment)
+                            .hide(historyFragment)
+                            .hide(myInfoFragment)
+                            .commitAllowingStateLoss()
+                    }
                     return@setOnItemSelectedListener true
                 }
 
                 R.id.searchFragment -> {
-                    supportFragmentManager.popBackStack("searchFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                    supportFragmentManager.beginTransaction()
-                            .replace(R.id.main_frame, SearchFragment())
-                            .addToBackStack("searchFragment")
+                    if(searchFragment.isAdded){
+                        supportFragmentManager.beginTransaction()
+                            .hide(homeFragment)
+                            .show(searchFragment)
+                            .hide(historyFragment)
+                            .hide(myInfoFragment)
                             .commitAllowingStateLoss()
+                    } else {
+                        supportFragmentManager.beginTransaction()
+                            .add(R.id.main_frame, searchFragment, "search")
+                            .hide(homeFragment)
+                            .hide(historyFragment)
+                            .hide(myInfoFragment)
+                            .commitAllowingStateLoss()
+                    }
                     return@setOnItemSelectedListener true
                 }
 
                 R.id.likeFragment -> {
-                    supportFragmentManager.popBackStack("likeFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                    supportFragmentManager.beginTransaction()
-                            .replace(R.id.main_frame, LikeFragment())
-                            .addToBackStack("likeFragment")
-                            .commitAllowingStateLoss()
+                    val intent = Intent(this, LikeActivity::class.java)
+                    startActivity(intent)
                     return@setOnItemSelectedListener true
                 }
 
@@ -81,20 +104,60 @@ class MainActivity : AppCompatActivity() {
         } else {
             when (case){
                 "historyFragment" -> {
-                    supportFragmentManager.popBackStack("historyFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                    supportFragmentManager.beginTransaction()
-                            .replace(R.id.main_frame, HistoryFragment())
-                            .addToBackStack("historyFragment")
+                    if(historyFragment.isAdded){
+                        supportFragmentManager.beginTransaction()
+                            .hide(homeFragment)
+                            .hide(searchFragment)
+                            .show(historyFragment)
+                            .hide(myInfoFragment)
                             .commitAllowingStateLoss()
+                    } else {
+                        supportFragmentManager.beginTransaction()
+                            .add(R.id.main_frame, historyFragment)
+                            .hide(homeFragment)
+                            .hide(searchFragment)
+                            .hide(myInfoFragment)
+                            .commitAllowingStateLoss()
+                    }
                 }
                 "myInfoFragment" -> {
-                    supportFragmentManager.popBackStack("myInfoFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                    supportFragmentManager.beginTransaction()
-                            .replace(R.id.main_frame, MyInfoFragment())
-                            .addToBackStack("myInfoFragment")
+                    if(myInfoFragment.isAdded){
+                        supportFragmentManager.beginTransaction()
+                            .hide(homeFragment)
+                            .hide(searchFragment)
+                            .hide(historyFragment)
+                            .show(myInfoFragment)
                             .commitAllowingStateLoss()
+                    } else {
+                        supportFragmentManager.beginTransaction()
+                            .add(R.id.main_frame, myInfoFragment)
+                            .hide(homeFragment)
+                            .hide(searchFragment)
+                            .hide(historyFragment)
+                            .commitAllowingStateLoss()
+                    }
                 }
             }
+        }
+    }
+
+    override fun onBackPressed() {
+        if(homeFragment.isVisible){
+            super.onBackPressed()
+        } else {
+            if(homeFragment.isAdded){
+                supportFragmentManager.beginTransaction()
+                    .show(homeFragment)
+                    .hide(searchFragment)
+                    .hide(historyFragment)
+                    .hide(myInfoFragment)
+                    .commitAllowingStateLoss()
+            } else {
+                supportFragmentManager.beginTransaction()
+                    .add(R.id.main_frame, homeFragment)
+                    .commitAllowingStateLoss()
+            }
+            binding.bottomNavigationView.menu.findItem(R.id.homeFragment).isChecked = true
         }
     }
 }
